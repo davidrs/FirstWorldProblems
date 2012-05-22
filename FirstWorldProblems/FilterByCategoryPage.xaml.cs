@@ -49,6 +49,7 @@ namespace FirstWorldProblems
             //I reset the jokePageType because the joke data will not update in the following scenario. If the user filters jokes, presses back and applys a new filter and views those jokes. 
             //It will not update the new filtered joke data since the PageType would be the same (filterCategoryJokes). Setting the PageType to ResetJokes 
             //allows the page to update with the newest Category data if the users chooses to view the filtered jokes.
+            //NICK not sure if this works properly, because I had to add ViewModel assignment to filtercategory click.
             App.ViewModel.JokePageType = MainViewModel.PageType.ResetJokes;
         }
 
@@ -59,6 +60,7 @@ namespace FirstWorldProblems
         /// <param name="e"></param>
         private void FilteredCategoryJokes_Click(object sender, RoutedEventArgs e)
         {
+            App.ViewModel.JokePageType = MainViewModel.PageType.FilteredCategoryJokes; //NICK added this code so filter would apply AFTER user sets them.           
             this.NavigationService.Navigate(new Uri("/JokePage.xaml?id=" + MainViewModel.PageType.FilteredCategoryJokes, UriKind.Relative));
         }
     }

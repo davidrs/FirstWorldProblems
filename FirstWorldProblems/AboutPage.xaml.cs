@@ -37,11 +37,41 @@ namespace FirstWorldProblems
             App.ViewModel.JokePageType = FirstWorldProblems.MainViewModel.PageType.ResetJokes;
         }
 
-        private void RateThisAppButton_Click(object sender, RoutedEventArgs e)
+
+        private void textBlockEmail_Tap(object sender, GestureEventArgs e)
         {
-            //DRS & TODO: Uncomment on the first update to the app marketplace (It doesn't work because the app is not not live on marketplace)
-            //MarketplaceReviewTask marketplaceReviewTask = new MarketplaceReviewTask();
-            //marketplaceReviewTask.Show();
+            new EmailComposeTask
+            {
+                Subject = "FWP Feedback",
+                Body = "",
+                To = "wp7@smewebsites.com"
+            }.Show();
         }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnHappinessForecast_Click(object sender, RoutedEventArgs e)
+        {
+            MarketplaceDetailTask marketplaceDetailTask = new MarketplaceDetailTask();
+            marketplaceDetailTask.ContentIdentifier = "3ab0a75b-53bc-485c-93d5-30cb79e8c8df";
+            marketplaceDetailTask.Show();
+        }
+
+        private void btnIntnlDevToolbox_Click(object sender, RoutedEventArgs e)
+        {
+            MarketplaceDetailTask marketplaceDetailTask = new MarketplaceDetailTask();
+            marketplaceDetailTask.ContentIdentifier = "0612d480-8361-4e2b-8315-be4d8432cadb";
+            marketplaceDetailTask.Show();
+        }
+
+        private void btnRateReview_Click(object sender, RoutedEventArgs e)
+        {
+            MarketplaceReviewTask marketplaceReviewTask = new MarketplaceReviewTask();
+            marketplaceReviewTask.Show();
+        }
+
     }
 }

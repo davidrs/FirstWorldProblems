@@ -24,6 +24,12 @@ using System.Windows.Resources;
 //Access Button Class
 using Microsoft.Phone.Shell;
 
+//ToDo list of improvements needed DRS NICK
+// -text should change between 'favourite' and 'unfavourite' to make it clear what the options are.
+// -special characters show up as question marks in database (not app's fault, just fyi)
+// - filters did't work, I found the problem, search 'todo' to find my solution and the original problem.
+//is 'messagetobedisplayed' textbox on filter page necessary?
+
 namespace FirstWorldProblems
 {
     public partial class JokePage : PhoneApplicationPage
@@ -85,26 +91,18 @@ namespace FirstWorldProblems
         }
 
         /// <summary>
-        /// Notifies the ViewModel the user has opened up the jokePage. The user wants to see his favorited jokes, a filtered list of jokes based on the categories
-        /// he has selcted, or all of the jokes. 
+        /// Notifies the ViewModel the user has opened up the jokePage. 
         /// </summary>
         /// <param name="e">Not used.</param>
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            if (NavigationContext.QueryString["id"].ToString().Equals(MainViewModel.PageType.Favorites.ToString()))
-            {
-                App.ViewModel.JokePageType = MainViewModel.PageType.Favorites;
-            }
-            else if (NavigationContext.QueryString["id"].ToString().Equals(MainViewModel.PageType.FilteredCategoryJokes.ToString()))
+            if (NavigationContext.QueryString["id"].ToString().Equals(MainViewModel.PageType.FilteredCategoryJokes.ToString()))
             {
                 //If the user presses back he probably wants to go to the main screen and not the category filter screen.
-                this.NavigationService.RemoveBackEntry();
-                App.ViewModel.JokePageType = MainViewModel.PageType.FilteredCategoryJokes;
-            }
-            else
-            {
-                App.ViewModel.JokePageType = MainViewModel.PageType.AllJokes;
+                //NICK david disagrees, the back button should always go back to previous screen. Can try some categories then go back alter and try the newly selected ones.
+                //this.NavigationService.RemoveBackEntry();
+                
             }
         }
 

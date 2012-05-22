@@ -21,17 +21,17 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0">
             <Grid.RowDefinitions>
                 <!-- DRS These widths are hardcoded, not sure how to make dynamic-->
-                <RowDefinition Height="63"/>
-                <RowDefinition Height="62" />
-                <RowDefinition Height="560"/>
+                <RowDefinition Height="72"/>
+                <RowDefinition Height="2" />
+                <RowDefinition Height="590"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <!--TitlePanel contains the name of the application and page title-->
-            <StackPanel x:Name="TitlePanel" Margin="12,17,0,3" Grid.Row="0">
-                <TextBlock x:Name="PageTitle" Text="Category Filter Page" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>
+            <StackPanel x:Name="TitlePanel" Margin="0" Grid.Row="0" Background="#82000000">
+                <TextBlock x:Name="PageTitle" Text="Browse Categories" Margin="9,15,0,0" Style="{StaticResource PhoneTextTitle2Style}"  Foreground="White"/>
             </StackPanel>
             <TextBlock TextWrapping="Wrap" Text="{Binding Path=MessageToDisplay, Mode=TwoWay}" x:Name="MessageTextBlock" Grid.Row="1" Style="{StaticResource PhoneTextTitle3Style}" Margin="0,0,0,0" Height="66" />
             <ScrollViewer Grid.Row="2" HorizontalAlignment="Left" Margin="6,44,0,0" Name="scrollViewer1" VerticalAlignment="Top" Width="444" >
@@ -43,14 +43,14 @@
                                     <ColumnDefinition Width="0.50*"/>
                                     <ColumnDefinition Width="0.50*"/>
                                 </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" Tag="{Binding CategoryID}" IsChecked="{Binding ViewCategoryFilter}" Click="CheckBox_Checked"/>                            
-                                <TextBlock Grid.Column="1" Text="{Binding CategoryText}" HorizontalAlignment="Center" VerticalAlignment="Center"/>                              
+                                <CheckBox Grid.Column="0" Tag="{Binding CategoryID}" IsChecked="{Binding ViewCategoryFilter}" Click="CheckBox_Checked"  Foreground="White" Background="#BFFFFFFF"/>
+                                <TextBlock Grid.Column="1" Text="{Binding CategoryText}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"  Foreground="White"/>                              
                             </Grid>
                         </DataTemplate>                        
                     </ListBox.ItemTemplate>                        
                 </ListBox>
             </ScrollViewer>
-            <Button Grid.Row="3" Name="FilteredCategoryJokes" Click="FilteredCategoryJokes_Click" Content="Show Filtered Jokes"  Margin="6,6,6,648" Background="#96000000" BorderThickness="1,1,1,1"  />
+            <Button Grid.Row="3" Name="FilteredCategoryJokes" Click="FilteredCategoryJokes_Click" Content="Browse Selected Categories"  Margin="18,0" Background="#96000000" BorderThickness="1,1,1,1" Height="85"  Foreground="White" BorderBrush="White" />
         </Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/FirstWorldProblems;component/Images/plainBG.png" Stretch="None" />

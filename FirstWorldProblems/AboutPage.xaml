@@ -5,7 +5,8 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"     
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -13,33 +14,59 @@
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 
-    <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Grid x:Name="LayoutRoot">
 
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="PageTitle" Text="About Page" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>
-        </StackPanel>
+        <controls:Pivot Title="" Name="masterPivot" Margin="0,0,0,80">
+            <!--Pivot item one-->
+            <controls:PivotItem Header="about" Name="forecastPivot">
+                <Grid x:Name="ContentPanel" Margin="12,0,12,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>                   
+                    <CheckBox Grid.Row="0" IsChecked="{Binding UserPermittedAppToConnectToInternet}" Click="CheckBox_Click" Foreground="White" Background="#BFFFFFFF" />
+                    <TextBlock  Grid.Row="0" Height="32" Margin="64,0,0,0" Text="Access Internet for new jokes" Foreground="White"  />
+                    <Image Grid.Row="2" Name="imgHeader"  Source="/FirstWorldProblems;component/Images/help.png" Margin="0,17,0,28" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="None" />
+                    <TextBlock Grid.Row="1" Text="Layout:" TextWrapping="Wrap" FontWeight="Normal" FontSize="28" Margin="0,25,0,0" Foreground="White"/>
+                </Grid>
+            </controls:PivotItem>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <CheckBox Grid.Row="0" IsChecked="{Binding UserPermittedAppToConnectToInternet}" Click="CheckBox_Click"/>   
-            <TextBlock Height="72" Margin="64,0,0,0" Text="Access Internet for new jokes" />   
-            <TextBlock Grid.Row="1" Text="Created by SMEWebsites. More data here." />
-            <!--
-            DRS & TODO: Uncomment on the first update to the app marketplace (It doesn't work because the app is not not live on marketplace)
-            <Button Content="Rate this app" Height="auto" HorizontalAlignment="Left" Margin="6,280,0,0" BorderBrush="CadetBlue" Name="RateThisAppButton" Click="RateThisAppButton_Click" VerticalAlignment="Top" Width="433" />-->
-        </Grid>
+            <!--Pivot item 2-->
+            <controls:PivotItem Header="more">
+
+                <ScrollViewer Grid.Row="1" Margin="0" Name="scrollViewer1">
+                    <!--ContentPanel - place additional content here-->
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Grid.Row="0" Text="About" TextWrapping="Wrap" FontWeight="Normal" FontSize="28" Margin="0,5" Foreground="White"/>
+                        <TextBlock Grid.Row="1" Text="The First World Problems app was created to entertain, educate, and motivate. Chances are you have a pretty sweet life, even if you have a windows phone instead an iPhone ;) 
+                                              
+                       We just want to help keep things in perspective. We'd be thrilled to get some feedback from you, so please shoot us a quick email with your thoughts. " TextWrapping="Wrap" Foreground="White"/>
+                        <Button Content="Rate &amp; Review"  Click="btnRateReview_Click"/>
+                        <TextBlock Height="Auto" Text="Our other apps..." FontSize="26" Margin="0,10,0,0" TextWrapping="Wrap" />
+                        <Button Content="" Height="169" Width="490"   BorderBrush="{x:Null}"  Click="btnHappinessForecast_Click" Padding="0" Margin="-27,0,0,0" BorderThickness="0">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/FirstWorldProblems;component/Images/bannerAds_Happiness.png" Stretch="UniformToFill" />
+                            </Button.Background>
+                        </Button>
+                        <Button Content="" Height="169" Width="490"  BorderBrush="{x:Null}" Click="btnIntnlDevToolbox_Click" Padding="0" Margin="-29,0,0,0" BorderThickness="0" >
+                            <Button.Background>
+                                <ImageBrush ImageSource="/FirstWorldProblems;component/Images/bannerAds_IntlDevToolbox.png"  Stretch="UniformToFill" />
+                            </Button.Background>
+                        </Button>
+                       
+                    </StackPanel>
+
+                </ScrollViewer>
+            </controls:PivotItem>
+
+        </controls:Pivot>
+
+
         <Grid.Background>
             <ImageBrush ImageSource="/FirstWorldProblems;component/Images/plainBG.png" Stretch="None" />
         </Grid.Background>
+       
     </Grid>
+
 </phone:PhoneApplicationPage>

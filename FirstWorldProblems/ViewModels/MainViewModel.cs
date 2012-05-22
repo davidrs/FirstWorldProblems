@@ -201,7 +201,7 @@ namespace FirstWorldProblems
                     if (this.JokesToDisplay.Count != 1)
                     {
                         //We don't have access to the internet and nothing is stored in cache. We will let the user know they need an internet connection
-                        //DRS
+                        //NICK I don't think this was working...
                         if (App.ViewModel.UserPermittedAppToConnectToInternet)
                         {
                             this.MessageToDisplay = "Please connect to the internet.";
@@ -257,15 +257,23 @@ namespace FirstWorldProblems
         /// </summary>
         private void loadJokesToDisplay()
         {
-            this.JokesToDisplay.Clear();
-       
+            this.JokesToDisplay = new ObservableCollection<Joke>();
             if (JokePageType == PageType.Favorites)
             {
                 foreach (Joke joke in this.AllJokes)
                 {
                     if (joke.Favorite)
                     {
-                        this.JokesToDisplay.Add(joke);
+                        try
+                        {
+                            this.JokesToDisplay.Add(joke);
+                        }
+                        catch (ArgumentOutOfRangeException e)
+                        {
+                            //An ArgumentOutOfRangeException used to happen very rarely because the jokesToDisplay collection but a pivot item is still databound to the collection.
+                            //This should no longer be a problem since I am re-intializing the JokesToDisplay collection, therefore destroying the previous databind. This exception catching is
+                            //a sanity check                            
+                        }
                     }
                 }
                 if (this.JokesToDisplay.Count == 0)
@@ -274,7 +282,7 @@ namespace FirstWorldProblems
                     this.JokesToDisplay.Add(new Joke() { JokeText = "There are no favorited jokes. Press back, try something else.", Favorite=false});
                 }
             }
-            else if (JokePageType == PageType.FilteredCategoryJokes)
+            else if (JokePageType == PageType.FilteredCategoryJokes) //todo this code runs before user selects filter options. and doesn't run again after.
             {
                 foreach (Joke joke in this.AllJokes)
                 {
@@ -293,6 +301,10 @@ namespace FirstWorldProblems
                 foreach (Joke joke in this.AllJokes)
                 {
                     this.JokesToDisplay.Add(joke);
+                }
+                if (this.JokesToDisplay.Count == 0) //NICK I don't think your code for errors was working, so this is a quick and dirty fix. add warning for if no jokes found
+                {
+                    this.JokesToDisplay.Add(new Joke() { JokeText = "Error: No Jokes Found.\n\nCheck your app settings and try re-launching the app with access to a data connection to download the latest first world problems", Favorite = false });
                 }
             }
 

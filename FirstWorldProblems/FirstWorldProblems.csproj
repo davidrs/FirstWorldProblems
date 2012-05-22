@@ -114,9 +114,6 @@
     <None Include="Properties\WMAppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApplicationIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Images\header.png" />
     <Content Include="Images\appbar.back.rest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -132,16 +129,36 @@
     </Content>
     <Resource Include="Images\tile.png" />
     <Resource Include="Images\jokeBG.png" />
-    <Resource Include="Images\category4.png" />
-    <Resource Include="Images\plainBG.png" />
-    <Resource Include="Images\category5.png" />
-    <Resource Include="Images\category6.png" />
-    <Resource Include="Images\category7.png" />
-    <Resource Include="Images\category8.png" />
-    <Content Include="SplashScreenImage.jpg" />
-    <Content Include="Background.png">
+    <Resource Include="Images\category4.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
+    <Resource Include="Images\plainBG.png" />
+    <Resource Include="Images\category5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\category6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\category7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\category8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\category10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\category9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\help.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\tile173.png" />
+    <Resource Include="Images\tileSm62.png" />
+    <Resource Include="Images\bannerAds_Happiness.png" />
+    <Resource Include="Images\bannerAds_IntlDevToolbox.png" />
+    <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

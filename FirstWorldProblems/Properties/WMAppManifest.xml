@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
   <App xmlns="" ProductID="{ad6f2ee3-7474-48cf-a55a-f5d4d9163dc2}" Title="FirstWorldProblems" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="FirstWorldProblems author" Description="Sample description" Publisher="FirstWorldProblems">
-    <IconPath IsRelative="true" IsResource="false">Images\tile.png</IconPath>
+    <IconPath IsRelative="true" IsResource="false">Images\tileSm62.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_GAMERSERVICES" />
       <Capability Name="ID_CAP_IDENTITY_DEVICE" />
@@ -24,7 +24,7 @@
     <Tokens>
       <PrimaryToken TokenID="FirstWorldProblemsToken" TaskName="_default">
         <TemplateType5>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Images\tile.png</BackgroundImageURI>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Images\tile173.png</BackgroundImageURI>
           <Count>0</Count>
           <Title>FirstWorldProblems</Title>
         </TemplateType5>

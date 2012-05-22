@@ -35,18 +35,18 @@
                     <DataTemplate>
                         <!-- add later: SelectionChanged="coursesList_SelectionChanged"-->
                         <Grid >
-                            <Grid Background="#97000000" VerticalAlignment="Top" Margin="0,20"> 
-                                <TextBlock Margin="5,0" Padding="10,25" TextWrapping="Wrap" Text="{Binding JokeText}" HorizontalAlignment="Stretch" FontSize="32"/>
+                            <Grid Background="#97000000" VerticalAlignment="Top" Margin="0">
+                                <TextBlock Margin="5,0" Padding="10,13,10,18" TextWrapping="Wrap" Text="{Binding JokeText}" HorizontalAlignment="Stretch" FontSize="32" Foreground="White"/>
                                 <Border BorderBrush="White" BorderThickness="1"/>
                             </Grid>
                             <Grid  VerticalAlignment="Bottom" >
                                 <StackPanel Orientation="Vertical" Width="295" HorizontalAlignment="Left" VerticalAlignment="Bottom">
                                     <Grid Background="#97000000" VerticalAlignment="Center" >
-                                        <TextBlock TextWrapping="Wrap" Text="{Binding Statistic}" FontSize="22" HorizontalAlignment="Stretch" Margin="5,0,0,5" Padding="5,10"/>
-                                        <HyperlinkButton NavigateUri="{Binding StatisticURL}"  FontSize="20" Content="Source" Height="32" x:Name="statistic" TargetName="_blank" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Statistic}" FontSize="22" HorizontalAlignment="Stretch" Margin="5,0,0,5" Padding="6,12,5,17"  Foreground="White"/>
+                                        <HyperlinkButton NavigateUri="{Binding StatisticURL}"  FontSize="20" Content="Source" Height="42" x:Name="statistic" TargetName="_blank" VerticalAlignment="Bottom"  Foreground="White" HorizontalAlignment="Right" />
                                         <Border BorderBrush="White" BorderThickness="1"/>
-                                    </Grid>                                    
-                                    <HyperlinkButton  NavigateUri="{Binding CharityURL}" FontSize="22"  Content="{Binding Charity}" Height="42" HorizontalAlignment="Left" x:Name="charity" TargetName="_blank" VerticalAlignment="Top" />
+                                    </Grid>
+                                    <HyperlinkButton  NavigateUri="{Binding CharityURL}" FontSize="22"  Content="{Binding Charity}" Height="54" HorizontalAlignment="Left" x:Name="charity" TargetName="_blank" VerticalAlignment="Top" Padding="0,2,0,8"  Foreground="White"/>
                                 </StackPanel>
                                 <Image Source="{Binding CategoryImage}" Width="180" VerticalAlignment="Bottom" HorizontalAlignment="Right"   Margin="0,-20,0,0"/>
                             </Grid>

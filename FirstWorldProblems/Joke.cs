@@ -8,13 +8,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace FirstWorldProblems
 {
     public class Joke
     {
         public int JokeID { get; set; }
-        public string JokeText { get; set; }
+        public string JokeText { get; set;}
         public string Author { get; set; }
         public string Statistic { get; set; }
         public string StatisticURL { get; set; }
